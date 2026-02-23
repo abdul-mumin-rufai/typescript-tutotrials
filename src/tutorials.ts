@@ -1,13 +1,16 @@
 console.log('rufai with typescript');
 
-interface student {
-    name: string;
-    ID: number;
+interface studentInfo{
+    firstName: string,
+    lastName: string,
+    studentID: number,
+
 }
 
-let student1: student = {
-    name: 'rufai',
-    ID: 1234,
-};
-console.log(student1);
+let student: studentInfo = {
+    firstName: 'abdul-mumin',
+    lastName: 'rufai',
+    studentID: 123
+}
 
+console.log(student);
