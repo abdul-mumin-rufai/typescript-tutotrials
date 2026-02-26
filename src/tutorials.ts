@@ -5,7 +5,8 @@ interface studentInfo{
     lastName: string,
     studentID: number,
     program: string,
-    level:number
+    level: number,
+    number: string
 
 }
 
@@ -14,7 +15,8 @@ let student: studentInfo = {
     lastName: 'rufai',
     studentID: 123,
     program: 'B.Sc Computer Science',
-    level:400
+    level: 400,
+    number:'0245662326'
 }
 
 console.log(student);
