@@ -6,7 +6,8 @@ interface studentInfo{
     studentID: number,
     program: string,
     level: number,
-    number: string
+    number: string,
+    school: string
 
 }
 
@@ -16,7 +17,8 @@ let student: studentInfo = {
     studentID: 123,
     program: 'B.Sc Computer Science',
     level: 400,
-    number:'0245662326'
+    number: '0245662326',
+    school: 'University for Development Studies'
 }
 
 console.log(student);
