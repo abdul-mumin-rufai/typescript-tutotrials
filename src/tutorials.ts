@@ -8,8 +8,8 @@ interface studentInfo{
     level: number,
     number: string,
     school: string
-    mother: string
-
+    mother: string,
+    father: string
 }
 
 let student: studentInfo = {
@@ -20,7 +20,8 @@ let student: studentInfo = {
     level: 400,
     number: '0245662326',
     school: 'University for Development Studies',
-    mother:'Rukaya Yakubu'
+    mother: 'Rukaya Yakubu',
+    father: 'Rufai Bawa'
 }
 
 console.log(student);
