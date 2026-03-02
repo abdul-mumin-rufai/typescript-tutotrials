@@ -9,7 +9,8 @@ interface studentInfo{
     number: string,
     school: string
     mother: string,
-    father: string
+    father: string,
+    elementarySchool: string
 }
 
 let student: studentInfo = {
@@ -21,7 +22,8 @@ let student: studentInfo = {
     number: '0245662326',
     school: 'University for Development Studies',
     mother: 'Rukaya Yakubu',
-    father: 'Rufai Bawa'
+    father: 'Rufai Bawa',
+    elementarySchool:'Danfa Methodist JHS'
 }
 
 console.log(student);
