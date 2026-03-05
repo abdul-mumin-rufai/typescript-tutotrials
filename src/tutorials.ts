@@ -49,3 +49,36 @@ myNumber
 
 let myBoolean: boolean = 2 > 9;
 myBoolean
+
+
+//unions and literals
+
+// unions types
+let myData: string | number = 20
+myData = 'go'
+myData
+
+let myThings: boolean | string | number = true;
+myThings = false
+myThings = 'come'
+myThings
+
+// literals
+let myRequest: 'idle' | 'processing' | 'completed' = 'idle';
+myRequest = 'completed'
+myRequest
+
+
+
+const books = ['1997', 'coming home', 'kila'];
+
+let foundBook: string| undefined; // by default variable are undefine
+
+for (let book of books) {
+    if (book === '1997') {
+        foundBook = book
+        foundBook.length
+        break;
+    }
+}
+console.log(foundBook?.length);
