@@ -82,3 +82,22 @@ for (let book of books) {
     }
 }
 console.log(foundBook?.length);
+
+// arrays and objects
+
+let rufaiArray:(string| number)[] = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 200];
+rufaiArray.push(500);
+console.log(rufaiArray);
+
+let array1: string[] = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
+array1.push('rufai')
+
+// objects
+let rufaiObject: { name: string; tele: number; sex:string} = {
+    name: 'rufai',
+    tele: 90,
+    sex: 'male'
+
+}
+rufaiObject.name
+
