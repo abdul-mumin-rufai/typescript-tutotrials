@@ -101,3 +101,15 @@ let rufaiObject: { name: string; tele: number; sex:string} = {
 }
 rufaiObject.name
 
+// functions and parameter
+function myFunction(name:string) { 
+    console.log(`hello ${name.toUpperCase()}`);
+    
+};
+myFunction('mumin')
+
+function calculateDiscount(price: number): number {
+    return price *0.1
+};
+
+calculateDiscount(90)
