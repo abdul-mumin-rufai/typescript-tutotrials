@@ -107,9 +107,28 @@ function myFunction(name:string) {
     
 };
 myFunction('mumin')
+//myFunction(true)
 
 function calculateDiscount(price: number): number {
     return price *0.1
 };
-
+//calculateDiscount('mumin')
 calculateDiscount(90)
+
+// functions and parameter challenge
+
+const familyMembers: string[] = ['rufai', 'rukaya', 'bintu', "ibrahim", 'mumin'];
+
+
+function checkForFamiltyMember(name:string):boolean { 
+    return familyMembers.includes(name)
+};
+
+let familyMember: string = 'kaka';
+if (checkForFamiltyMember(familyMember)) {
+    console.log(`${familyMember} is in the list`);
+    
+} else {
+    console.log(`${familyMember} is not in the list`);
+    
+};
