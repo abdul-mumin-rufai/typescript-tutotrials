@@ -132,3 +132,28 @@ if (checkForFamiltyMember(familyMember)) {
     console.log(`${familyMember} is not in the list`);
     
 };
+
+// optional and default parameter in function
+
+// optional parameter
+function discountPrice(price:number, discount?:number): number { 
+    return price - (discount || 0)
+};
+
+let finalPrice = discountPrice(100, 10);
+console.log(finalPrice);
+
+let finalPrice1 = discountPrice(900);
+console.log(finalPrice1);
+
+// default paramter
+function footballScores(scoreWithOutPenalty: number, penaltyScores: number= 0): number {
+    return scoreWithOutPenalty - penaltyScores
+};
+
+let scoreWithOutPenalty = footballScores(100);
+console.log(scoreWithOutPenalty);
+
+let scoreWithPenalty = footballScores(100, 5);
+console.log(scoreWithPenalty);
+
