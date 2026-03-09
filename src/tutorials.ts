@@ -168,5 +168,11 @@ function restParameter(message:string, ...numbers:number[]):string {
 
     return `${message.toLocaleUpperCase()} ${addNumbers}`
 };
-console.log(restParameter('mumin is learning typeScript: ' , 1, 2, 3, 4, 5));
+console.log(restParameter('mumin is learning typeScript: ', 1, 2, 3, 4, 5));
 
+// void functions ir function that does not return a value.
+function doSomething(message:string):void {
+    console.log(message.toLocaleUpperCase());
+};
+
+doSomething('this is a void function')
