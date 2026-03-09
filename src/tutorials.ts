@@ -157,3 +157,16 @@ console.log(scoreWithOutPenalty);
 let scoreWithPenalty = footballScores(100, 5);
 console.log(scoreWithPenalty);
 
+// rest parameter
+function restParameter(message:string, ...numbers:number[]):string { 
+    const doubleNumbers = numbers.map((num) => num * 2);
+    console.log(doubleNumbers);
+    
+    let addNumbers = numbers.reduce((previous, current) => {
+        return previous + current;
+    }, 0);
+
+    return `${message.toLocaleUpperCase()} ${addNumbers}`
+};
+console.log(restParameter('mumin is learning typeScript: ' , 1, 2, 3, 4, 5));
+
