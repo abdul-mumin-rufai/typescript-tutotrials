@@ -176,3 +176,18 @@ function doSomething(message:string):void {
 };
 
 doSomething('this is a void function')
+
+// challenges and typeof
+
+function processSomething(input: string | number) { 
+    if (typeof input === 'number') {
+        console.log(input * 2); 
+    } else {
+        console.log(input.toLocaleLowerCase());
+        
+    }
+    
+};
+
+processSomething(10);
+processSomething('something');
