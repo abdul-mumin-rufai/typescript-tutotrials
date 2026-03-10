@@ -191,3 +191,12 @@ function processSomething(input: string | number) {
 
 processSomething(10);
 processSomething('something');
+
+// object as a parameter of a function
+function objectParameter({ id }: { id: number }): { id: number; isActive: boolean} { 
+    return { id, isActive: id % 2 === 0};
+};
+
+let parameter1 = objectParameter({id: 1});
+let parameter2 = objectParameter({ id: 4 });
+console.log(parameter1, parameter2);
