@@ -200,3 +200,32 @@ function objectParameter({ id }: { id: number }): { id: number; isActive: boolea
 let parameter1 = objectParameter({id: 1});
 let parameter2 = objectParameter({ id: 4 });
 console.log(parameter1, parameter2);
+
+
+// alternative of object as a parameter
+
+function createStudent(student: { id: number; name:string}):void { 
+    console.log(student.name.toLocaleUpperCase());
+    
+};
+const newStudent = {
+    id: 57,
+    name: 'abdul-mumin'
+
+}
+createStudent(newStudent)
+
+// access property checks in object as a parameter
+
+function createStudent1(student: { id: number; name:string}):void { 
+    console.log(student.name.toLocaleUpperCase());
+    
+};
+const newStudent1 = {
+    id: 57,
+    name: 'abdul-mumin',
+    email: 'rufai@gmail.com'
+
+}
+createStudent1(newStudent1);
+createStudent1({ id: 10, name: 'this is mumin'});
