@@ -227,5 +227,23 @@ const newStudent1 = {
     email: 'rufai@gmail.com'
 
 }
+//TypeScript only performs excess property checks on object literals where 
+// they're used, not on references
+//  to them.
 createStudent1(newStudent1);
-createStudent1({ id: 10, name: 'this is mumin'});
+createStudent1({ id: 10, name: 'this is mumin' });
+
+// challenge 
+function processData(input: number | string, config: { reverse: boolean } = { reverse: false }
+
+): number | string{ 
+    if (typeof input === 'number') {
+            return input * input
+    } else {
+        return config.reverse ? input.toUpperCase().split('').reverse().join('') :
+                input.toUpperCase()
+        }
+};
+console.log(processData(15));
+console.log(processData('abdul-mumin rufai'));
+console.log(processData('abdul-mumin rufai', {reverse:true}));
