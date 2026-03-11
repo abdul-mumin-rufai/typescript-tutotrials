@@ -247,3 +247,49 @@ function processData(input: number | string, config: { reverse: boolean } = { re
 console.log(processData(15));
 console.log(processData('abdul-mumin rufai'));
 console.log(processData('abdul-mumin rufai', {reverse:true}));
+
+// Type Alias
+
+type User = { id: number; name: string; isActive: boolean }; // type alias in action
+
+const john: User  = {
+    id: 1,
+    name: 'john',
+    isActive: true,
+};
+console.log(john);
+
+  
+  const susan: User = {
+    id: 1,
+    name: 'susan',
+    isActive: false,
+};
+console.log(susan);
+
+  
+function createUser(user: User): User {
+
+    console.log(`Hello there ${user.name.toUpperCase()} !!!`);
+    return user;
+}
+console.log(createUser({id: 9, name: 'mumin', isActive:true}));
+
+type StringOrNumber = string | number;
+let newValue: StringOrNumber;
+
+newValue = 'mumin';
+newValue = 9;
+console.log(newValue);
+
+type Theme = 'light' | 'dark';
+
+let newTheme: Theme;
+newTheme = 'dark'
+console.log(newTheme);
+
+function myTheme(t:Theme): string {
+    return t;
+};
+myTheme('light')
+console.log(myTheme('light'));
