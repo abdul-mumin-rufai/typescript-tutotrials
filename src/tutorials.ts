@@ -314,3 +314,25 @@ const mumin: Manager = { id: 15, name: 'Mumin', employees: [rufai, abdul] };
 
 printStaffMember(abdul);
 printStaffMember(mumin);
+
+// type intersection
+type interSection = { studentId: number; lastName: string; firstName: string };
+type addType = interSection & { school: string } // type intersection here
+
+let intersection1: interSection;
+
+intersection1 = {
+    studentId: 90,
+    lastName: 'Rufai',
+    firstName: 'Abdul-Mumin'
+}
+let intersection2: interSection & addType // type intersection here
+intersection2 = {
+    studentId: 10,
+    lastName: 'Rufai',
+    firstName: 'Abdul-Mumin',
+    school: 'University for Development Studies'
+};
+console.log(intersection1, intersection2);
+
+
