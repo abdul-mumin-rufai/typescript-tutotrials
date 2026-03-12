@@ -293,3 +293,24 @@ function myTheme(t:Theme): string {
 };
 myTheme('light')
 console.log(myTheme('light'));
+
+// type alias challenge
+type Employee = { id: number; name: string; department: string };
+type Manager = { id: number; name: string; employees: Employee[] };
+
+type Staff = Employee | Manager;
+
+function printStaffMember(staff:Staff) { 
+    if ('department' in staff) {
+        console.log(`${staff.name} is an employee in the ${staff.department}`);
+    } else {
+        console.log(`${staff.name} is an manager with ${staff.employees.length} employees`);
+    }
+};
+
+const rufai: Employee = { id: 15, name: 'Rufai', department: 'software development' };
+const abdul: Employee = { id: 15, name: 'AbdulMumin', department: 'software development' };
+const mumin: Manager = { id: 15, name: 'Mumin', employees: [rufai, abdul] };
+
+printStaffMember(abdul);
+printStaffMember(mumin);
