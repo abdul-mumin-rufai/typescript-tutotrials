@@ -375,9 +375,31 @@ const litereture1: InterfaceMethod = {
         console.log(this.author);
     },
     printTitle(message) {
-        return `${litereture1.title} ${message}`
+        return `${this.title} ${message}`
     },
 };
 litereture1.printAuthor();
 let result = litereture1.printTitle('is very interesting book');
 console.log(result);
+
+// interface challenge
+interface Computer { 
+    readonly id: number;
+    brand: string;
+    ram: number;
+    storage?: number;
+    upgradeRam(newRam: number): number;
+};
+
+const laptop: Computer = {
+    id: 90,
+    brand: 'Toshiba',
+    ram: 15,
+    upgradeRam(newRam) { 
+        return this.ram += newRam;
+    },
+};
+laptop.storage = 256; // storage is optional so i now added it here.
+console.log(laptop.upgradeRam(10));
+console.log(laptop);
+
