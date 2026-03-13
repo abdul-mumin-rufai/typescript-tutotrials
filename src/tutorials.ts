@@ -355,4 +355,29 @@ const litereture: Book = {
 let printBook = litereture
 console.log(printBook);
 
-
+// method in interface
+interface InterfaceMethod{
+    readonly isBk: number;
+    author: string;
+    title: string;
+    genere?: string;
+    // methods
+    printAuthor(): void;
+    printTitle(message: string): string;
+}
+const litereture1: InterfaceMethod = {
+    isBk: 345,
+    author: 'Efo Kojo Mawugbe',
+    title: 'In the chest of a woman',
+    genere: 'litereture',
+    //methods
+    printAuthor() {
+        console.log(this.author);
+    },
+    printTitle(message) {
+        return `${litereture1.title} ${message}`
+    },
+};
+litereture1.printAuthor();
+let result = litereture1.printTitle('is very interesting book');
+console.log(result);
