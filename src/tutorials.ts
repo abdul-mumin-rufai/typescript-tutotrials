@@ -335,4 +335,24 @@ intersection2 = {
 };
 console.log(intersection1, intersection2);
 
+// interface
+interface Book { 
+    readonly isBk: number;
+    author: string;
+    title: string;
+    genere?: string;
+};
+
+const litereture: Book = {
+    isBk: 345,
+    author: 'Efo Kojo Mawugbe',
+    title: 'In the chest of a woman',
+    genere: 'litereture',
+    
+}
+//litereture.isBk = 23 can't re-assign to isBk because it readonly
+//litereture.title='new title' // this is allowed
+let printBook = litereture
+console.log(printBook);
+
 
