@@ -403,3 +403,26 @@ laptop.storage = 256; // storage is optional so i now added it here.
 console.log(laptop.upgradeRam(10));
 console.log(laptop);
 
+// interface merging
+
+interface Person { 
+    name: string;
+    id: number;
+    printPersonDetails(): void;
+};
+
+interface Person { 
+    homeTown: string; // merging in action
+};
+
+const person:Person = {
+    name: 'Mumin',
+    id: 66,
+    homeTown: 'Kumbungu', // usage here
+    printPersonDetails() {
+        `name: ${person.name} id: ${person.id} homeTown: ${person.homeTown}`   
+    },
+};
+
+
+console.log(`name: ${person.name} id: ${person.id} homeTown: ${person.homeTown}`);
