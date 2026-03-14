@@ -466,3 +466,52 @@ const hustlerStudent: HustlerStudent = {
 console.log(hustler.printHustlerDetails(), hustler);
 console.log(hustlerStudent.printHustlerDetails());
 console.log(hustlerStudent);
+
+// interface inheritance challenge 1
+function myWorkers(): Manager1 | DogOwner | Person1{
+    const randomNumber = Math.random();
+    if (randomNumber < 0.33) {
+        return person1;
+
+    } else if (randomNumber < 0.66) {
+        return dogOwner;
+
+    } else {
+        return manager1;
+    }
+}
+
+interface Person1 { 
+    name: string;
+};
+
+const person1: Person1 = {
+    name:'Abdul-Mumin'
+};
+
+interface DogOwner extends Person1 {
+    dogName: string;
+};
+
+const dogOwner: DogOwner = {
+    name: 'Rufai',
+    dogName:'aki'
+};
+
+interface Manager1 extends Person1 { 
+    managePeople(): void;
+    deleteTask(): void;
+};
+
+const manager1: Manager1 = {
+    name: 'Bawa',
+    managePeople() {
+        console.log(`name: ${this.name}`);
+    },
+    deleteTask() {
+        console.log('I can delete who i want');
+    }
+};
+type Employee1 = Person1 | Manager1 | DogOwner;
+const employee: Employee1 = myWorkers();
+console.log(employee);
