@@ -420,9 +420,49 @@ const person:Person = {
     id: 66,
     homeTown: 'Kumbungu', // usage here
     printPersonDetails() {
-        `name: ${person.name} id: ${person.id} homeTown: ${person.homeTown}`   
+        `name: ${this.name} id: ${this.id} homeTown: ${this.homeTown}`   
     },
 };
 
 
 console.log(`name: ${person.name} id: ${person.id} homeTown: ${person.homeTown}`);
+
+// interface inheritance
+
+interface Hustler { 
+    name: string;
+    age: number;
+    company?: string;
+    printHustlerDetails(): string | number;
+};
+
+
+const hustler: Hustler = {
+    name: 'Mumin',
+    age: 100,
+    company: 'we are construction',
+    printHustlerDetails() {
+        return `name: ${this.name} age: ${this.age} company: ${this.company}`
+    }
+};
+
+interface HustlerStudent extends Hustler { 
+    school: string;
+    studentId: number;
+};
+
+// extends the interface here ie inheritance
+const hustlerStudent: HustlerStudent = {
+    age: 90,
+    company: 'netflixs',
+    school: 'University for Development Studies',
+    studentId: 99,
+    name:'Rufai',
+    printHustlerDetails() {
+        return `name: ${this.name} age: ${this.age} company: ${this.company} school: ${this.school}   `
+    }
+};
+
+console.log(hustler.printHustlerDetails(), hustler);
+console.log(hustlerStudent.printHustlerDetails());
+console.log(hustlerStudent);
