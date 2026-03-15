@@ -512,6 +512,15 @@ const manager1: Manager1 = {
         console.log('I can delete who i want');
     }
 };
+
 type Employee1 = Person1 | Manager1 | DogOwner;
 const employee: Employee1 = myWorkers();
-console.log(employee);
+
+// type predicate
+function isManager(object: Person1 | Manager1 | DogOwner): object is Manager1{
+    return 'managePeople' in object;
+};
+
+if (isManager(employee)) {
+    employee.deleteTask();
+};
