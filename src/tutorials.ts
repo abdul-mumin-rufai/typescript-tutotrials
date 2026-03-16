@@ -524,3 +524,22 @@ function isManager(object: Person1 | Manager1 | DogOwner): object is Manager1{
 if (isManager(employee)) {
     employee.deleteTask();
 };
+
+// Tuples and Enums
+// tuples are used for fixed arrays ie it values cannot be changed
+let tuples: [string, number] = ['mumin', 20];
+tuples
+
+let data: [number, string, number] = [15, 'May', 1997];
+data
+
+function myTuple(): [number, string, number] { 
+    return [15, 'May', 1997];
+};
+
+let tupleData = myTuple();
+console.log(tupleData);
+console.log(tupleData[0]);
+console.log(tupleData[1]);
+console.log(tupleData[2]);
+
