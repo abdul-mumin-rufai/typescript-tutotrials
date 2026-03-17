@@ -530,8 +530,9 @@ if (isManager(employee)) {
 let tuples: [string, number] = ['mumin', 20];
 tuples
 
-let data: [number, string, number] = [15, 'May', 1997];
-data
+let data: readonly [number, string, number?] = [15, 'May', 1997];
+//tuples can also be optional
+//data.push('barcelona')  gotcha here althogh the array is fixed but push modifies is. so we use the read only
 
 function myTuple(): [number, string, number] { 
     return [15, 'May', 1997];
@@ -542,4 +543,39 @@ console.log(tupleData);
 console.log(tupleData[0]);
 console.log(tupleData[1]);
 console.log(tupleData[2]);
+console.log(data);
 
+// Enums
+// enums properties can not have a values of string
+enum EnumServerResponses {
+    IDLE=200,
+    PROCESSING=99,
+    COMPLETED= 90,
+}
+console.log(EnumServerResponses);
+
+Object.values(EnumServerResponses).forEach((value) => {
+    if (typeof value === 'number') {
+        console.log(value);
+    }
+})
+
+Object.values(EnumServerResponses).forEach((value) => {
+        console.log(value);
+})
+
+interface ServerResponse { 
+    results: EnumServerResponses;
+    firstName: string
+};
+
+//
+function myEnumFunction(): ServerResponse { 
+    return {
+        results: 90,
+        firstName: 'Abdul-Mumin'
+    }
+};
+
+const enumVariable: ServerResponse = myEnumFunction();
+console.log(enumVariable);
