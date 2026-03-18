@@ -538,6 +538,23 @@ function myTuple(): [number, string, number] {
     return [15, 'May', 1997];
 };
 
+/* this is allowed due to the reversed nature of number values
+enum NumericValue { 
+    value = 1
+};
+
+let myNumericValue: NumericValue = 1;
+console.log(myNumericValue);
+
+this is not allowed
+enum StringValue { 
+    value = 'barcelona'
+};
+
+let myStringValue: StringValue = 'barcelona';
+console.log(myStringValue);
+ */
+
 let tupleData = myTuple();
 console.log(tupleData);
 console.log(tupleData[0]);
@@ -546,11 +563,11 @@ console.log(tupleData[2]);
 console.log(data);
 
 // Enums
-// enums properties can not have a values of string
+// enums properties can not have a values of type string
 enum EnumServerResponses {
     IDLE=200,
     PROCESSING=99,
-    COMPLETED= 90,
+    COMPLETED= 'mumin',
 }
 console.log(EnumServerResponses);
 
@@ -572,10 +589,39 @@ interface ServerResponse {
 //
 function myEnumFunction(): ServerResponse { 
     return {
-        results: 90,
+        results: EnumServerResponses.COMPLETED,
         firstName: 'Abdul-Mumin'
     }
 };
 
 const enumVariable: ServerResponse = myEnumFunction();
 console.log(enumVariable);
+
+// Tuples and Enums Challenge
+
+enum UserRole { 
+    ADMIM,
+    MANAGER,
+    EMPLOYEE,
+};
+
+console.log(UserRole);
+
+type EnumUser = {
+    id: number;
+    name: string;
+    role: UserRole;
+    contact: [string, string];
+};
+const object: EnumUser = {
+    id: 90,
+    name: 'Abdul-Mumin Rufai',
+    role: UserRole.MANAGER,
+    contact:['rufai.abdulmumin@hotmail.com', '0245662326'],
+};
+
+function createEnumUser(object:EnumUser):EnumUser { 
+    return object;
+};
+let finalEnum: EnumUser = createEnumUser(object);
+console.log(finalEnum);
