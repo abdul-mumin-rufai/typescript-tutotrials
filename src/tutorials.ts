@@ -625,3 +625,28 @@ function createEnumUser(object:EnumUser):EnumUser {
 };
 let finalEnum: EnumUser = createEnumUser(object);
 console.log(finalEnum);
+
+// type assertion
+
+enum MyTeam { 
+    GOALKEEPER = 'Joan Garcia',
+    DEFENDER = 'Pau Cubarsi',
+    MIDFIELDER = 'Perdri',
+    ATTACKER = 'Lamine Yamal'
+};
+
+let teamGoalKeeper = 'Joan Garcia';
+
+
+type Players = {
+    player: MyTeam,
+    shirtNumber: number;
+}
+
+const myTeam: Players = {
+    player: teamGoalKeeper as MyTeam, // we use the keyword 'as' for type assertion
+    shirtNumber: 1,
+};
+
+let finalTeam: Players = myTeam;
+console.log(finalTeam);
