@@ -650,3 +650,17 @@ const myTeam: Players = {
 
 let finalTeam: Players = myTeam;
 console.log(finalTeam);
+
+// type unknown
+
+let unknownValue: unknown;
+
+unknownValue = 22;
+unknownValue = 'my name is Abdul-Mumin Rufai';
+unknownValue = ['Barcelona', 90, 'US$']
+console.log(unknownValue);
+
+if (typeof unknownValue === 'string') {
+    unknownValue.toUpperCase();
+}
+
