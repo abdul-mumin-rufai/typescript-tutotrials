@@ -664,3 +664,21 @@ if (typeof unknownValue === 'string') {
     unknownValue.toUpperCase();
 }
 
+function unknown(){
+    const random = Math.random();
+    if (random < 0.5) {
+        throw new Error('Rufai, please you have an error')
+    } else {
+        throw 'It should be well'
+    }
+}
+// the try, catch error is by default set to unknown so have to check for the condition
+try {
+    unknown();
+} catch (error) {
+    if (error instanceof Error) {
+        console.log(error.message);
+    } else {
+        console.log(error);
+    }
+}
