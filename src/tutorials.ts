@@ -664,14 +664,14 @@ if (typeof unknownValue === 'string') {
     unknownValue.toUpperCase();
 }
 
-function unknown(){
+function unknown():void{
     const random = Math.random();
     if (random < 0.5) {
         throw new Error('Rufai, please you have an error')
     } else {
         throw 'It should be well'
     }
-}
+};
 // the try, catch error is by default set to unknown so have to check for the condition
 try {
     unknown();
@@ -682,3 +682,51 @@ try {
         console.log(error);
     }
 }
+
+// type never
+//let typeNver: never = 'this is type never' no value can be assign to type never
+
+type NeverTheme = 'dark' | 'light';
+function neverTheme(theme: NeverTheme): void { 
+    if (theme === 'dark') {
+        console.log("this is a dark theme");
+    }
+    if(theme === 'light') {
+        console.log("this is a light theme");
+    }
+};
+
+console.log(neverTheme('dark'));
+console.log(neverTheme('light'));
+
+
+enum NeverColors {
+    GREEN,
+    BLUE,
+    YELLOW,
+    WHITE,
+}
+
+function neverFuntion(color:NeverColors) { 
+    switch (color) {
+        case NeverColors.BLUE:
+            return 'Blue';
+        case NeverColors.GREEN:
+            return 'Green';
+        case NeverColors.YELLOW:
+            return 'Yellow';
+        default: // advnatage of type never in action
+            // build time real error
+            //let unexpectedColor: never = color;
+
+            // at runtime
+           // throw new Error(`unexpected color found: ${unexpectedColor}`);
+    }   
+};
+
+console.log(neverFuntion(NeverColors.BLUE));
+console.log(neverFuntion(NeverColors.GREEN));
+console.log(neverFuntion(NeverColors.YELLOW));
+console.log(neverFuntion(NeverColors.WHITE));
+
+
