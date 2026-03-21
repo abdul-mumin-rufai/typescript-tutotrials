@@ -720,7 +720,7 @@ function neverFuntion(color:NeverColors) {
             //let unexpectedColor: never = color;
 
             // at runtime
-           // throw new Error(`unexpected color found: ${unexpectedColor}`);
+            //throw new Error(`unexpected color found: ${unexpectedColor}`);
     }   
 };
 
