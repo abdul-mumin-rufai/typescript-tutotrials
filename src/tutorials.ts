@@ -727,6 +727,24 @@ function neverFuntion(color:NeverColors) {
 console.log(neverFuntion(NeverColors.BLUE));
 console.log(neverFuntion(NeverColors.GREEN));
 console.log(neverFuntion(NeverColors.YELLOW));
-console.log(neverFuntion(NeverColors.WHITE));
+//console.log(neverFuntion(NeverColors.WHITE));
 
+// ES6 Modules
 
+export let es6Value = 'mumin';
+
+export function addEs6Values(a: number, b: number):number {
+    return a + b;
+};
+
+export type ModulesStudent = {
+    name: string;
+    studentId: number
+};
+
+const esStutent: ModulesStudent = {
+    name: 'abdul-mumin',
+    studentId: 57,
+};
+
+export default esStutent;
