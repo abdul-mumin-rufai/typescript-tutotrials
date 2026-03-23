@@ -749,7 +749,7 @@ const esStutent: ModulesStudent = {
 
 export default esStutent;
 
-// type Guarding typeof
+// type Guarding (typeof)
 
 type ValueType = string | number | boolean;
 
@@ -769,3 +769,26 @@ function typeGuard(value: ValueType): void{
     console.log(`this is a boolean: ${value}`);
 }
 typeGuard(value);
+
+// type guarding (equality narowwing check)
+type Dog = { type: 'dog'; name: string; bark: () => void };
+type Cat = { type: 'cat'; name: string; meow: () => void };
+type Animal = Dog | Cat;
+
+function animalSounds(animal: Animal): void{
+    if (animal.type === 'cat') {
+        animal.meow();
+    } else {
+        animal.bark()
+    }
+}
+
+const cat: Animal = {
+    type: 'cat',
+    name: 'aki',
+    meow() {
+        
+    },
+};
+animalSounds(cat);
+
