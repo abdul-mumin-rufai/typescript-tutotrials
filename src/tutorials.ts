@@ -792,3 +792,20 @@ const cat: Animal = {
 };
 animalSounds(cat);
 
+// type guarding (property check)
+
+function animalSound(animal: Animal): void{
+    if ('bark' in animal) {
+        animal.bark()
+    } else {
+        animal.meow();
+    }
+}
+animalSound({
+    type: 'cat',
+    name: 'aki',
+    meow() {
+        
+    },
+});
+
