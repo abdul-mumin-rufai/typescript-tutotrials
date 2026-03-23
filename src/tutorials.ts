@@ -748,3 +748,24 @@ const esStutent: ModulesStudent = {
 };
 
 export default esStutent;
+
+// type Guarding typeof
+
+type ValueType = string | number | boolean;
+
+let value: ValueType;
+const random = Math.random();
+value = random < 0.33 ? 'Rufai Abdul-Mumin love TypeScript' : random < 0.66 ? 123.456 : true;
+
+function typeGuard(value: ValueType): void{
+    if (typeof value === 'string') {
+        console.log(value.toUpperCase());
+        return;
+    }
+    if (typeof value === 'number') {
+        console.log(value.toFixed(2)); 
+        return;
+    }
+    console.log(`this is a boolean: ${value}`);
+}
+typeGuard(value);

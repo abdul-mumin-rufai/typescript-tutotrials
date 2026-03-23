@@ -1,4 +1,4 @@
-import esStutent,  { addEs6Values, es6Value, type ModulesStudent } from "./tutorials";
+/* import esStutent,  { addEs6Values, es6Value, type ModulesStudent } from "./tutorials";
 
 
 console.log(es6Value);
@@ -9,4 +9,4 @@ const newEsStudent: ModulesStudent = {
     name: 'rufai bawa',
     studentId: 100,
 }
-console.log(newEsStudent);
+console.log(newEsStudent); */
