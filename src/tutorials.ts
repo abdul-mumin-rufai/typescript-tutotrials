@@ -825,3 +825,14 @@ printTruthyFalsy('INDEED WITH HADRSHIP COMES EASE')
 printTruthyFalsy(null)
 printTruthyFalsy(undefined)
 
+// type guarding (instanceof)
+
+try {
+    throw new Error('this is an error associated with type guarding')
+} catch (error) {
+    if (error instanceof Error) {
+        console.log(error.message);
+    } else {
+        console.log('there was a different error');
+    }
+}
