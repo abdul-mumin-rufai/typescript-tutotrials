@@ -809,3 +809,19 @@ animalSound({
     },
 });
 
+// type guarding (Truthy"/"Falsy)
+
+type TruthyFalsy = string | null | undefined;
+function printTruthyFalsy(string: TruthyFalsy): void{
+    if (string) {
+         console.log(string.toLowerCase());
+    } else {
+        console.log('string was not provided');
+        
+     }
+};
+
+printTruthyFalsy('INDEED WITH HADRSHIP COMES EASE')
+printTruthyFalsy(null)
+printTruthyFalsy(undefined)
+
