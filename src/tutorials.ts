@@ -849,3 +849,38 @@ function checkInput(input: Date | string): string {
   console.log(year);
   console.log(random1);
 
+// type guard predicate
+type JohanPhilosiophy = {
+    name: string;
+    tikiTaka: () => void;
+}
+
+type Catanaso = {
+    name: string;
+    manToMan: () => void;
+}
+
+type Football = JohanPhilosiophy | Catanaso;
+
+const fifaFootball = ():Football => {
+    return Math.random() > 0.5 ? {
+        name: 'Barcelona', tikiTaka: () => console.log('this Cruyff dream team')
+    } : {
+        name: 'Inter Millan', manToMan: () => console.log('Inter Millan like catanso football')
+    };
+}
+
+const fifa = fifaFootball();
+console.log(fifa);
+
+
+function isJohanPhilosiophy(football: Football): football is JohanPhilosiophy {
+    //return 'tikiTaka' in football;  we can use the property check here
+    return (football as JohanPhilosiophy).tikiTaka !== undefined;
+}
+
+if (isJohanPhilosiophy(fifa)) {
+    fifa.tikiTaka();
+} else {
+    fifa.manToMan();
+}
