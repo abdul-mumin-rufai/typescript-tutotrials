@@ -836,3 +836,16 @@ try {
         console.log('there was a different error');
     }
 }
+
+function checkInput(input: Date | string): string {
+    if (input instanceof Date) {
+      return input.getFullYear().toString();
+    }
+    return input;
+  }
+  
+  const year = checkInput(new Date());
+  const random1 = checkInput('2020-05-05');
+  console.log(year);
+  console.log(random1);
+
