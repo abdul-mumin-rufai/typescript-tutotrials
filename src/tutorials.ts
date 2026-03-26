@@ -924,3 +924,46 @@ const newAction: Action = {
 
 console.log(newAction);
 reducer(90, newAction);
+
+// generic functions .... this are functions that can accept the any type.
+
+/* let etoo1: string[] = ['etoo', 'messi'];
+let etoo2: number[] = [1, 3];
+let etoo3: boolean[] = [true, false, true]; */
+// this is what we know
+
+
+// generic approach
+let etoo1: Array<string> = ['etoo', 'messi'];
+let etoo2: Array<number> = [1, 3];
+
+etoo1;
+etoo2;
+
+// for function
+function generiFunction<T>(para: T) { 
+    return para
+};
+
+let someString = generiFunction('this Abdul-Mumin with generic functions');
+let someNumber = generiFunction(99);
+console.log(someString);
+console.log(someNumber);
+
+
+// interafce
+interface GenericInterface<T>{
+    value: T;
+    getValue(): T;
+}
+
+const genericString: GenericInterface<string> = {
+    value: 'welcome to the world of generic in typescript',
+    getValue() {
+        return this.value
+    }
+};
+
+console.log(genericString);
+let toUpper = genericString.value.toUpperCase();
+console.log(toUpper);
