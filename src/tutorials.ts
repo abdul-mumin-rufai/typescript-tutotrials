@@ -999,3 +999,10 @@ let someGenericString = lenghtAndValue<string>(9, 'remote job')
 console.log(someGenericNumber);
 console.log(someGenericString);
 
+// generic functions that take two types as paramters
+
+function genericWithTwoTypes<T, U>(param1: T, param2: U): [T, U] { 
+    return [param1, param2];
+};
+let twoTypes = genericWithTwoTypes<number, boolean>(15, true)
+console.log(twoTypes);
