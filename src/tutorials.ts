@@ -967,3 +967,10 @@ const genericString: GenericInterface<string> = {
 console.log(genericString);
 let toUpper = genericString.value.toUpperCase();
 console.log(toUpper);
+
+// working with async function using generic
+async function genericAsync(): Promise<string> { 
+    return 'conquer fear, conquer all'
+};
+let thisGeneric = genericAsync()
+console.log(thisGeneric);
