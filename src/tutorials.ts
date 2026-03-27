@@ -974,3 +974,28 @@ async function genericAsync(): Promise<string> {
 };
 let thisGeneric = genericAsync()
 console.log(thisGeneric);
+
+// generic function that takes a value and return both the lenght and value of a array
+
+//this is for non generic approach
+/* function lenghtAndValue(lenght: number, value: string): string[] {
+    let finalArray: string[] = [];
+    finalArray = Array(lenght).fill(value);
+    return finalArray;
+};
+
+let showLenghtAndValue = lenghtAndValue(10, 'conquer all');
+console.log(showLenghtAndValue); */
+
+// generic approach
+function lenghtAndValue<T>(lenght: number, value: T): Array<T> { 
+    let finalArray: T[] = [];
+    finalArray = Array(lenght).fill(value);
+    return finalArray;
+};
+
+let someGenericNumber = lenghtAndValue<number>(7, 15);
+let someGenericString = lenghtAndValue<string>(9, 'remote job')
+console.log(someGenericNumber);
+console.log(someGenericString);
+
