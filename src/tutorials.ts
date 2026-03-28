@@ -1004,5 +1004,67 @@ console.log(someGenericString);
 function genericWithTwoTypes<T, U>(param1: T, param2: U): [T, U] { 
     return [param1, param2];
 };
-let twoTypes = genericWithTwoTypes<number, boolean>(15, true)
+let twoTypes = genericWithTwoTypes<number, boolean>(15, true) // typescript have the ability to infer the type of generic function when we only pass the correct values
 console.log(twoTypes);
+
+//  const [name,setName] = useState('')
+//  const [products,setProducts] = useState<Product[]>([])
+
+// type constraint on the generic type T, generic type can be either a number or a string.
+
+function constraintGenericFunction<T extends string | number>(value: T): T { 
+    console.log(value);
+    return value
+};
+
+let constrain1 = constraintGenericFunction(`rufai love's typescript`);
+let constrain2 = constraintGenericFunction(90);
+//let constrain3 = constraintGenericFunction(true); 
+console.log(constrain1);
+console.log(constrain2);
+
+// constriant more complex examples
+type Car = {
+    brand: string;
+    model: string;
+};
+
+const car: Car = {
+    brand: 'ford',
+    model: 'mustang',
+};
+
+type Product = {
+    name: string;
+    price: number;
+};
+
+const product: Product = {
+    name: 'shoes',
+    price: 1.99,
+};
+
+type Student = {
+    name: string;
+    age: number;
+};
+
+const  gStudent: Student = {
+    name: 'peter',
+    age: 20,
+};
+car
+
+/* function extendsGeneric<T extends Student>(input: T): void{ 
+    console.log(input.name);
+};
+extendsGeneric(gStudent); */
+
+// much approperiate approach
+
+function extendsGeneric<T extends { name: string }>(input: T):void {
+    console.log(input.name);
+};
+extendsGeneric(gStudent);
+extendsGeneric(product);
+//extendsGeneric(car);
