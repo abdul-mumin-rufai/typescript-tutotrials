@@ -1082,3 +1082,49 @@ const dGenerics: DefaultGeneric = {
     married:false,
 };
 console.log(dGenerics);
+
+// structure of default fetching data usina axios
+
+// data is located in the data property
+/* const { data } = axios.get(someUrl);
+
+axios.get<{ name: string }[]>(someUrl);
+
+export class Axios {
+  get<T = any, R = AxiosResponse<T>, D = any>(
+    url: string,
+    config?: AxiosRequestConfig<D>
+  ): Promise<R>;
+}
+
+export interface AxiosResponse<T = any, D = any> {
+  data: T;
+  status: number;
+  statusText: string;
+  headers: RawAxiosResponseHeaders | AxiosResponseHeaders;
+  config: InternalAxiosRequestConfig<D>;
+  request?: any;
+} */
+
+// fetching data using react query and axios
+const url = 'https://www.course-api.com/react-tours-project';
+
+async function exampleAsync(url: string) {
+    try {
+        const response = await fetch(url)
+        // check for possible error
+        if (!response.ok) {
+            throw new Error(`error occuried: ${response.status}`)
+        }
+        const data = response.json();
+        return data;
+    } catch (error) {
+        const errorMessage = error instanceof Error ? error.message : 'there was an error...';
+        console.log(errorMessage);
+        // show error
+        [];
+    }
+}
+
+let fetchData = exampleAsync(url);
+console.log(fetchData);
