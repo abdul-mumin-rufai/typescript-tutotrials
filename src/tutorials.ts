@@ -1061,10 +1061,24 @@ car
 extendsGeneric(gStudent); */
 
 // much approperiate approach
-
 function extendsGeneric<T extends { name: string }>(input: T):void {
     console.log(input.name);
 };
 extendsGeneric(gStudent);
 extendsGeneric(product);
 //extendsGeneric(car);
+
+// default generics
+type DefaultGeneric<T = any>={
+    name: T;
+    sports: T;
+    contact: T;
+    married: T
+}
+const dGenerics: DefaultGeneric = {
+    name: 'Abdul-Mumin',
+    sports: 'football but it is not a fear game',
+    contact: +233245662326,
+    married:false,
+};
+console.log(dGenerics);
