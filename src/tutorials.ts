@@ -1107,16 +1107,9 @@ export interface AxiosResponse<T = any, D = any> {
 } */
 
 // fetching data using react query and axios
-type Response = {
-    id: string;
-    name: string;
-    info: string;
-    image: string;
-    price: string;
-}
-const url = 'https://www.course-api.com/react-tours-project';
 
-async function exampleAsync(url: string):Promise<Response[]> {
+
+/* async function exampleAsync(url: string):Promise<Response[]> {
     try {
         const response = await fetch(url)
         // check for possible error
@@ -1137,4 +1130,45 @@ let fetchData = await exampleAsync(url);
 fetchData.map((datas) => {
     console.log(datas.name);
 });
-console.log(fetchData);
+console.log(fetchData); */
+
+import { z } from 'zod';
+
+const responseSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    info: z.string(),
+    image: z.string(),
+    price:z.string(),
+});
+
+type Response = z.infer<typeof responseSchema>;
+
+const url = 'https://www.course-api.com/react-tours-project';
+
+async function asyncFunction(url: string):Promise<Response[]> { 
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`there was an error page not found: ${response.status}`)
+        }
+        const rawData = await response.json();
+        const result = responseSchema.array().safeParse(rawData);
+        console.log(result);
+        
+        if (!result.success) {
+            throw new Error(`Error!!! Invaild data: ${result.error}`)
+        }
+        return result.data;
+    } catch (error) {
+        const errorMessage = error instanceof Error ? error.message : 'there was an error';
+        console.log(errorMessage);
+        return []
+    }
+
+};
+const zodDatas: Response[] = await asyncFunction(url);
+zodDatas.map((zodData) => {
+    console.log(zodData.info);
+    
+})
