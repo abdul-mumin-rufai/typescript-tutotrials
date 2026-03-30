@@ -1107,24 +1107,34 @@ export interface AxiosResponse<T = any, D = any> {
 } */
 
 // fetching data using react query and axios
+type Response = {
+    id: string;
+    name: string;
+    info: string;
+    image: string;
+    price: string;
+}
 const url = 'https://www.course-api.com/react-tours-project';
 
-async function exampleAsync(url: string) {
+async function exampleAsync(url: string):Promise<Response[]> {
     try {
         const response = await fetch(url)
         // check for possible error
         if (!response.ok) {
             throw new Error(`error occuried: ${response.status}`)
         }
-        const data = response.json();
+        const data: Response[] = await response.json();
         return data;
     } catch (error) {
         const errorMessage = error instanceof Error ? error.message : 'there was an error...';
         console.log(errorMessage);
         // show error
-        [];
+        return [];
     }
 }
 
-let fetchData = exampleAsync(url);
+let fetchData = await exampleAsync(url);
+fetchData.map((datas) => {
+    console.log(datas.name);
+});
 console.log(fetchData);
