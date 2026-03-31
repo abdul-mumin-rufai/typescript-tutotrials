@@ -1172,3 +1172,6 @@ zodDatas.map((zodData) => {
     console.log(zodData.info);
     
 })
+
+// typescript declaration file
+
