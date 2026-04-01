@@ -1174,4 +1174,12 @@ zodDatas.map((zodData) => {
 })
 
 // typescript declaration file
+// import { DeclarationFile } from './typesDeclaration';
+// we can use the DeclarationFile becausetypescript now everything about the import
 
+// the same apply's to libraries when u download a library and it does have .d.ts file u down the declaration file manually.
+
+// installing a library without .d.ts file
+//npm i bcryptjs
+
+//import bcrypt from 'bcryptjs';
