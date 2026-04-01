@@ -1183,3 +1183,21 @@ zodDatas.map((zodData) => {
 //npm i bcryptjs
 
 //import bcrypt from 'bcryptjs';
+
+// classes
+class RufaiClass {
+    readonly name: string;
+    studentId: number;
+    school: string;
+    constructor(name: string, studentId: number, school: string) {
+        this.name = name;
+        this.studentId = studentId;
+        this.school = school;
+    }
+}
+
+const rufaiClass = new RufaiClass('Abdul-Mumin', 57, 'University for Development Studies') 
+console.log(rufaiClass.name);
+//rufaiClass.name = 'etoo'
+
+console.log(rufaiClass);
