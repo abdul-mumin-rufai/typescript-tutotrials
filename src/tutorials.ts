@@ -1186,18 +1186,25 @@ zodDatas.map((zodData) => {
 
 // classes
 class RufaiClass {
-    readonly name: string;
-    studentId: number;
-    school: string;
-    constructor(name: string, studentId: number, school: string) {
+    public readonly name: string;
+    public studentId: number;
+    private school: boolean= false;
+    constructor(name: string, studentId: number) {
         this.name = name;
         this.studentId = studentId;
-        this.school = school;
+    }
+    getschool() {
+        this.school = this.checkSchool(); // this function only assign a new value to the private field call school
+    }
+    isSchool() {
+        return this.school;
+    }
+    private checkSchool() {
+        return !this.school 
     }
 }
 
-const rufaiClass = new RufaiClass('Abdul-Mumin', 57, 'University for Development Studies') 
-console.log(rufaiClass.name);
-//rufaiClass.name = 'etoo'
+const rufaiClass = new RufaiClass('Abdul-Mumin', 57)
+rufaiClass.getschool()
+console.log(rufaiClass.isSchool());
 
-console.log(rufaiClass);
