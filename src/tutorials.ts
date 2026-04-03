@@ -1208,3 +1208,21 @@ const rufaiClass = new RufaiClass('Abdul-Mumin', 57)
 rufaiClass.getschool()
 console.log(rufaiClass.isSchool());
 
+// creating class with the shortcut method ie without explictly creating the fields
+
+class shortcutClass { 
+    constructor(public country: string, public city: string, private zipcode: number) {
+        
+    }
+    getZipcode() {
+        return this.zipcode
+    }
+};
+
+const ghana = new shortcutClass('Ghana', 'Accra', 90);
+console.log(ghana);
+console.log(ghana.city); // possible because it is not private field
+//ghana.zipecode //ghana.zipcode not possible because we cant access private field outside the class
+console.log(ghana.getZipcode()); // we use modifiers ie methods to access private fields outside of a class
+
+
