@@ -1235,6 +1235,9 @@ class getterSetterClass{
     avoidError() {
         return this.numberMumin;
     }
+    getStudentId() {
+        this.studentId
+    }
     get allSchools() {
         return `Secondary School: ${this.firstSchool} and University: ${this.secondSchool}`
     } // allSchools is a new field now
