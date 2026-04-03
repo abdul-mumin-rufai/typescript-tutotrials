@@ -1225,4 +1225,39 @@ console.log(ghana.city); // possible because it is not private field
 //ghana.zipecode //ghana.zipcode not possible because we cant access private field outside the class
 console.log(ghana.getZipcode()); // we use modifiers ie methods to access private fields outside of a class
 
+// getter and setter methods in class: they create a new fields on the fly 
+
+class getterSetterClass{ 
+    private numberMumin = 10;
+    constructor(public firstSchool: string, public secondSchool: string, private studentId: number) {
+        
+    }
+    avoidError() {
+        return this.numberMumin;
+    }
+    get allSchools() {
+        return `Secondary School: ${this.firstSchool} and University: ${this.secondSchool}`
+    } // allSchools is a new field now
+
+    set numberMu(input: number) {
+        this.numberMumin = input; // cant return yet..
+    }
+    /* get numberMu() {
+        return this.numberMumin; // giving it back to the class
+    }
+    get newNumber() {
+        return this.numberMu = 90;
+    } */
+
+};
+
+const mySchools = new getterSetterClass('Suhum Presec', 'University for Development Studies', 471); 
+console.log(mySchools);
+console.log(mySchools.allSchools);
+console.log(mySchools.numberMu = 90);
+
+
+
+
+
 
