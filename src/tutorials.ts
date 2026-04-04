@@ -1259,6 +1259,24 @@ console.log(mySchools);
 console.log(mySchools.allSchools);
 console.log(mySchools.numberMu = 90);
 
+// using class and interface togather
+// by doing so we did not create any instance for the interface
+interface ClassInterface { 
+    fatherName: string;
+    motherName: string;
+    parent(): void;
+};
+
+class ClassWithInterface implements ClassInterface { 
+    constructor(public fatherName: string, public motherName: string,) { };
+    parent(): void {
+       console.log( `Father's name ${this.fatherName}, Mother's name ${this.motherName}`);
+    };
+};
+
+const parentName = new ClassWithInterface('Rufai Bawa', 'Rukaya Yakubu');
+console.log(parentName);
+parentName.parent();
 
 
 
