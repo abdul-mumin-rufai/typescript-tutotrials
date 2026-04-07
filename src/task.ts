@@ -25,16 +25,30 @@ interface Tasks {
 };
 
 const listOfTasks: Tasks[] = [];
-listOfTasks
+console.log(listOfTasks);
+
+
 
 tasksForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    const selectTasks = tasksInput.value;
-    if (selectTasks) {
+    const tasksDescription = tasksInput.value;
+    console.log(tasksDescription);
+    if (tasksDescription) {
+        const newTask: Tasks = {
+            tasks: tasksDescription,
+            isComplete:false,
+        }
         // add task to list
+        addTasks(newTask);
         // render tasks
         // update local storage
         tasksInput.value = '';
+        return;
     } else
         alert('Input field can not be empty')
 });
+
+// create a function to add tasks
+function addTasks(task: Tasks): void { 
+    listOfTasks.push(task);
+};
