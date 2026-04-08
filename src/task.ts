@@ -16,8 +16,8 @@ const tasksForm = document.querySelector<HTMLFormElement>('.form')!;
 
 const tasksInput = document.querySelector<HTMLInputElement>('.form-input')!;
 
-const tasksList = document.querySelector<HTMLUListElement>('.list-tasks')!;
-tasksList
+const tasksList = document.querySelector<HTMLUListElement>('.list')!;
+
 
 interface Tasks { 
     tasks: string;
@@ -25,7 +25,7 @@ interface Tasks {
 };
 
 const listOfTasks: Tasks[] = [];
-console.log(listOfTasks);
+
 
 
 
@@ -41,6 +41,7 @@ tasksForm.addEventListener('submit', (event) => {
         // add task to list
         addTasks(newTask);
         // render tasks
+        renderTasks(newTask);
         // update local storage
         tasksInput.value = '';
         return;
@@ -51,4 +52,12 @@ tasksForm.addEventListener('submit', (event) => {
 // create a function to add tasks
 function addTasks(task: Tasks): void { 
     listOfTasks.push(task);
+    console.log(listOfTasks);
+};
+
+// create function to render list of tasks on the screen
+function renderTasks(task: Tasks): void { 
+    const tasksElement = document.createElement('li');
+    tasksElement.textContent = task.tasks;
+    tasksList.appendChild(tasksElement);
 };
