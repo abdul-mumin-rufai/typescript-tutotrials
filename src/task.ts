@@ -5,6 +5,8 @@ testButton.disabled = true; // we have to tell typescript the the of the element
 
  */
 
+
+
 // alternative approach
 /* const testButton = document.querySelector<HTMLButtonElement>('.test-button') //to avoid that we have to use the non-null operator (!) 
 if (testButton) {
@@ -24,8 +26,16 @@ interface Tasks {
     isComplete: boolean;
 };
 
-const listOfTasks: Tasks[] = [];
+// when getting something from the local storage the function must return a value
+function loadTasksFromLocalStorage(): Tasks[] { 
+    const loadedTasks = localStorage.getItem('tasks');
+    return loadedTasks ? JSON.parse(loadedTasks) : [];
+}
 
+const listOfTasks: Tasks[] = loadTasksFromLocalStorage(); // the list of tasks is now from the local storage
+
+// displaying the list of items on the screen from the local storage
+listOfTasks.forEach(renderTasks)
 
 
 
@@ -43,6 +53,8 @@ tasksForm.addEventListener('submit', (event) => {
         // render tasks
         renderTasks(newTask);
         // update local storage
+        storedToLocalStorage();
+
         tasksInput.value = '';
         return;
     } else
@@ -60,4 +72,8 @@ function renderTasks(task: Tasks): void {
     const tasksElement = document.createElement('li');
     tasksElement.textContent = task.tasks;
     tasksList.appendChild(tasksElement);
+};
+
+function storedToLocalStorage():void { 
+    localStorage.setItem('tasks', JSON.stringify(listOfTasks));
 };
