@@ -71,8 +71,23 @@ function addTasks(task: Tasks): void {
 function renderTasks(task: Tasks): void { 
     const tasksElement = document.createElement('li');
     tasksElement.textContent = task.tasks;
+
+    // create checkbox element
+    const checkBox = document.createElement('input');
+    checkBox.type = 'checkbox';
+    checkBox.checked = task.isComplete;
+    
+    checkBox.addEventListener('change', () => {
+        task.isComplete = !task.isComplete;
+        storedToLocalStorage();
+    })
+    
+    // appending both the tasksElement and the checkBox to is parent component ie tasksList and tasksElement
+    tasksElement.appendChild(checkBox);
     tasksList.appendChild(tasksElement);
 };
+
+
 
 function storedToLocalStorage():void { 
     localStorage.setItem('tasks', JSON.stringify(listOfTasks));
